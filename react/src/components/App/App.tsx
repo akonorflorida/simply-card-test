@@ -60,9 +60,11 @@ function App(props: { name: string }) {
       setDrawnCards([]);
       const res = await axios.get(
         "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
+        // "http://localhost:5000/cards/drawACard"
       );
       if (res.data.success === true) {
         setDeckID(res.data.deck_id);
+        console.log(res.data);
       }
       setLoading(false);
     } catch (error) {
@@ -84,12 +86,13 @@ function App(props: { name: string }) {
     try {
       setFetching(true);
       const res = await axios.get(
-        `https://deckofcardsapi.com/api/deck/${deckID}/draw/?count=1`
+         `https://deckofcardsapi.com/api/deck/${deckID}/draw/?count=1`
       );
       if (res.data.success === true) {
         pushDrawnCards(res.data.cards[0]);
         setActiveIndex(0);
         setStackSize(res.data.remaining);
+        console.log(res.data);
       }
       setFetching(false);
     } catch (error) {

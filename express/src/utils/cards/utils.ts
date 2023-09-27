@@ -20,5 +20,20 @@ export const generateDeck = () => {
     };
     const shuffledDeck = shuffle(deck);
     return { shuffledDeck };
- };
- 
+ }; 
+
+
+
+
+
+// const deck = generateDeck().shuffledDeck;
+
+// app.get('/drawCard', (req, res) => {
+//    if (deck.length === 0) {
+//        res.status(400).send({ error: 'No cards left in the deck' });
+//        return;
+//    }
+
+//    const card = deck.pop();
+//    res.send({ card });
+// });
