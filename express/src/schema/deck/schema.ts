@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 import { mongo } from "../../config/mongo/config";
-import { generateDeck } from '../../utils/cards/utils';
 
 
 const deckSchema = new mongoose.Schema({
-  deck: [{String}]
+  deck: [String]
 })
 
 
-const Deck = mongo.model('Deck', deckSchema);
+export const Deck = mongo.model('Deck', deckSchema);
 
-const deck = new Deck([generateDeck]);
-await deck.save();
+// const deck = new Deck([generateDeck]);
 
-await Deck.find();
+// await deck.save();
+
+// await Deck.find();
 
 
 
